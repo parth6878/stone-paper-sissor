@@ -7,17 +7,18 @@ public class game_loop : MonoBehaviour
 
     public string[] choices = { "Stone", "Paper", "Scissors" };
 
-    string GetResult(string player, string computer)
-    {
-        if (player == computer)
+    string GetResult(string playerChoice, string computer)
+    {   
+        Debug.Log(playerChoice);
+        if (playerChoice == computer)
             return "Draw";
 
-        if ((player == "Stone" && computer == "Scissors") ||
-            (player == "Paper" && computer == "Stone") ||
-            (player == "Scissors" && computer == "Paper"))
+        else if ((playerChoice == "Stone" && computer == "Scissors") ||
+            (playerChoice == "Paper" && computer == "Stone") ||
+            (playerChoice == "Scissors" && computer == "Paper"))
             return "You Win!";
-
-        return "You Lose!";
+        
+        return "You Lose!";   
     }
 
     public void PlayerChoice(string playerChoice)
@@ -25,9 +26,12 @@ public class game_loop : MonoBehaviour
         string comp_choice = choices[Random.Range(0, choices.Length)];
 
         string result = GetResult(playerChoice, comp_choice);
+        Result.text = "You: " + playerChoice +
+              "\nComputer: " + comp_choice +
+              "\nResult: " + result;
 
-        Result.text = "Result: " + result;
+        Debug.Log("Player: " + playerChoice + " | Computer: " + comp_choice);
 
-        Debug.Log("Clicked: " + playerChoice);
+        
     }
 }
