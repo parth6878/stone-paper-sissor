@@ -9,7 +9,7 @@ public class game_loop : MonoBehaviour
 
     string GetResult(string playerChoice, string computer)
     {   
-        Debug.Log(playerChoice);
+        Debug.Log(playerChoice);    
         if (playerChoice == computer)
             return "Draw";
 
